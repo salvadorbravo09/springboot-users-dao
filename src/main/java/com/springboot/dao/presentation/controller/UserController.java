@@ -1,6 +1,8 @@
 package com.springboot.dao.presentation.controller;
 
 import com.springboot.dao.presentation.dtos.UserDTO;
+import com.springboot.dao.services.interfaces.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +11,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
+
+    @Autowired
+    private IUserService userService;
 
     @GetMapping("/find")
     public ResponseEntity<List<UserDTO>> findAll() {
